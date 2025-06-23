@@ -573,7 +573,7 @@ TFA_TARGETS:= \
 	mt7981-spim-nand-ubi-ddr4 \
 	mt7981-ram-ddr4 \
 	mt7981-emmc-ddr4 \
-	mt7981-sdmmc-ddr4 \  
+	mt7981-sdmmc-ddr4 \
 	mt7981-spim-nand-ddr4 \
 	mt7981-cudy-tr3000-v1 \
 	mt7986-ram-ddr3 \
