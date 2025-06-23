@@ -928,7 +928,7 @@ UBOOT_TARGETS := \
 	mt7981_nokia_ea0326gmp \
 	mt7981_openwrt_one-snand \
 	mt7981_openwrt_one-nor \
-	mt7981_nanowrt-ax3 \
+	mt7981_nanowrt-ax3-sd \
 	mt7981_rfb-spim-nand \
 	mt7981_rfb-emmc \
 	mt7981_rfb-nor \
