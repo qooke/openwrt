@@ -148,6 +148,14 @@ define Trusted-Firmware-A/mt7981-ram-ddr4
   DEFAULT:=TARGET_mediatek_filogic
 endef
 
+define Trusted-Firmware-A/mt7981-sdmmc-ddr4
+  NAME:=MediaTek MT7981 (SD card, DDR4)
+  BOOT_DEVICE:=sdmmc
+  BUILD_SUBTARGET:=filogic
+  PLAT:=mt7981
+  DDR_TYPE:=ddr4
+endef
+
 define Trusted-Firmware-A/mt7981-emmc-ddr4
   NAME:=MediaTek MT7981 (eMMC, DDR4)
   BOOT_DEVICE:=emmc
@@ -565,6 +573,7 @@ TFA_TARGETS:= \
 	mt7981-spim-nand-ubi-ddr4 \
 	mt7981-ram-ddr4 \
 	mt7981-emmc-ddr4 \
+	mt7981-sdmmc-ddr4 \  
 	mt7981-spim-nand-ddr4 \
 	mt7981-cudy-tr3000-v1 \
 	mt7986-ram-ddr3 \

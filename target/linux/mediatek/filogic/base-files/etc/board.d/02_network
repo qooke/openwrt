@@ -74,6 +74,7 @@ mediatek_setup_interfaces()
 		;;
 	bananapi,bpi-r3-mini|\
 	edgecore,eap111|\
+	nanowrt,ax3|\
 	huasifei,wh3000)
 		ucidef_set_interfaces_lan_wan eth0 eth1
 		;;
