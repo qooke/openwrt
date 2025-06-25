@@ -125,10 +125,12 @@ openwrt,one)
 	ucidef_set_led_netdev "lanlink" "LANLINK" "amber:lan" "eth1" "link"
 	;;
 nanowrt,ax3)
-	ucidef_set_led_netdev "lan" "LAN" "green:lan" "eth0" "link tx rx"
-	ucidef_set_led_netdev "wan" "WAN" "green:wan" "eth1" "link tx rx"
-	ucidef_set_led_netdev "wifi-2g" "WIFI-2.4G" "green:wifi2g" "phy0-ap0" "link tx rx"
-	ucidef_set_led_netdev "wifi-5g" "WIFI-5.8G" "green:wifi5g" "phy1-ap0" "link tx rx"
+	ucidef_set_led_netdev "wanact" "WANACT" "mdio-bus:0x7:green:wan" "eth0" "rx tx"
+	ucidef_set_led_netdev "wanlink" "WANLINK" "mdio-bus:0x7:amber:wan" "eth0" "link"
+	ucidef_set_led_netdev "lanact" "LANACT" "green:lan" "eth1" "rx tx"
+	ucidef_set_led_netdev "lanlink" "LANLINK" "amber:lan" "eth1" "link"
+	ucidef_set_led_netdev "wifi2g" "WIFI2G" "green:wifi2g" "phy0-ap0" "link tx rx"
+	ucidef_set_led_netdev "wifi5g" "WIFI5G" "green:wifi5g" "phy1-ap0" "link tx rx"
 	;;	
 routerich,ax3000|\
 routerich,ax3000-ubootmod)

@@ -45,13 +45,25 @@
 			gpios = <&pio 5 GPIO_ACTIVE_LOW>;
 		};
 
+		led-0 {
+			function = LED_FUNCTION_LAN;
+			color = <LED_COLOR_ID_GREEN>;
+			gpios = <&pio 8 GPIO_ACTIVE_LOW>;
+		};
+
 		led-1 {
+			function = LED_FUNCTION_LAN;
+			color = <LED_COLOR_ID_AMBER>;
+			gpios = <&pio 13 GPIO_ACTIVE_LOW>;
+		};
+
+		led-2 {
 			function = LED_FUNCTION_LAN;
 			color = <LED_COLOR_ID_AMBER>;
 			gpios = <&pio 34 GPIO_ACTIVE_LOW>;
 		};
 
-		led-2 {
+		led-3 {
 			function = LED_FUNCTION_LAN;
 			color = <LED_COLOR_ID_GREEN>;
 			gpios = <&pio 35 GPIO_ACTIVE_LOW>;
