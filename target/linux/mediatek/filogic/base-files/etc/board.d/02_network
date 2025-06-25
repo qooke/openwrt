@@ -74,7 +74,6 @@ mediatek_setup_interfaces()
 		;;
 	bananapi,bpi-r3-mini|\
 	edgecore,eap111|\
-	nanowrt,ax3|\
 	huasifei,wh3000)
 		ucidef_set_interfaces_lan_wan eth0 eth1
 		;;
@@ -97,6 +96,7 @@ mediatek_setup_interfaces()
 	zyxel,nwa50ax-pro)
 		ucidef_set_interface_lan "eth0"
 		;;
+	nanowrt,ax3|\
 	cudy,m3000-v1|\
 	cudy,tr3000-256mb-v1|\
 	cudy,tr3000-v1|\

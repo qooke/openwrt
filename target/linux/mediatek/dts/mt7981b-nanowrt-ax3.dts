@@ -72,7 +72,7 @@
 		regulator-name = "fan";
 		regulator-min-microvolt = <5000000>;
 		regulator-max-microvolt = <5000000>;
-		gpios = <&pio 15 GPIO_ACTIVE_HIGH>;
+		gpios = <&pio 11 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		regulator-boot-on;
 	};
@@ -82,7 +82,7 @@
 		regulator-name = "usb_vbus";
 		regulator-min-microvolt = <5000000>;
 		regulator-max-microvolt = <5000000>;
-		gpios = <&pio 14 GPIO_ACTIVE_HIGH>;
+		gpios = <&pio 12 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		regulator-boot-on;
 	};
@@ -212,7 +212,6 @@
 &pwm {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pwm_pins>;
-
 	status = "okay";
 };
 
@@ -270,8 +269,8 @@
 };
 
 &xhci {
-	status = "okay";
 	vbus-supply = <&usb_vbus>;
+	status = "okay";
 };
 
 &watchdog {
@@ -280,7 +279,6 @@
 
 &wifi {
 	status = "okay";
-	mediatek,mtd-eeprom = <&factory 0x0>;
 };
 
 &sgmiisys0 {
