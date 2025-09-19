@@ -448,6 +448,19 @@ define U-Boot/mt7981_gatonetworks_gdsp
   FIP_COMPRESS:=1
 endef
 
+define U-Boot/mt7981_melonpi_ax3
+  NAME:=MelonPi AX3
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=melonpi_ax3
+  UBOOT_CONFIG:=mt7981_melonpi_ax3
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=nor
+  BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr4
+  FIP_COMPRESS:=1
+  DEPENDS:=+trusted-firmware-a-mt7981-nor-ddr4
+endef
+
 define U-Boot/mt7981_rfb-nor
   NAME:=MT7981 Reference Board
   BUILD_SUBTARGET:=filogic
@@ -946,6 +959,7 @@ UBOOT_TARGETS := \
 	mt7981_cmcc_rax3000m-nand-ddr4 \
 	mt7981_cudy_tr3000-v1 \
 	mt7981_gatonetworks_gdsp \
+	mt7981_melonpi_ax3 \
 	mt7981_glinet_gl-mt2500 \
 	mt7981_glinet_gl-x3000 \
 	mt7981_glinet_gl-xe3000 \

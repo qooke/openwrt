@@ -96,6 +96,7 @@ dlink,aquila-pro-ai-m30-a1|\
 dlink,aquila-pro-ai-m60-a1)
 	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x40000" "0x40000"
 	;;
+melonpi,ax3|\
 gatonetworks,gdsp)
 	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x10000" "0x10000"
 	;;

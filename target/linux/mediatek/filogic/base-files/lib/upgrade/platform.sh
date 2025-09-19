@@ -76,6 +76,7 @@ platform_do_upgrade() {
 	cmcc,a10-ubootmod|\
 	cmcc,rax3000m|\
 	cudy,tr3000-v1-ubootmod|\
+	melonpi,ax3|\
 	gatonetworks,gdsp|\
 	h3c,magic-nx30-pro|\
 	jcg,q30-pro|\
@@ -238,6 +239,7 @@ platform_check_image() {
 	cmcc,a10-ubootmod|\
 	cmcc,rax3000m|\
 	cudy,tr3000-v1-ubootmod|\
+	melonpi,ax3|\
 	gatonetworks,gdsp|\
 	h3c,magic-nx30-pro|\
 	jcg,q30-pro|\
@@ -291,6 +293,7 @@ platform_copy_config() {
 	bananapi,bpi-r4-2g5|\
 	bananapi,bpi-r4-poe|\
 	cmcc,rax3000m|\
+	melonpi,ax3|\
 	gatonetworks,gdsp|\
 	mediatek,mt7988a-rfb)
 		if [ "$CI_METHOD" = "emmc" ]; then
