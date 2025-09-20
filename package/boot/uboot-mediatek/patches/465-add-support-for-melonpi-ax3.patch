@@ -398,10 +398,10 @@ Signed-off-by: qooke <balainit@163.com>
 +bootargs=root=/dev/fit0 rootwait
 +console=earlycon=uart8250,mmio32,0x11002000 console=ttyS0
 +bootcmd=run validate_bootmedia; if test $bootmedia = "nor"; then run boot_nor; else if test $bootmedia = "sd"; then run boot_sd_firmware; fi; fi
-+bootconf=config-1#mt7981b-melonpi-ax3-sd
++bootconf=config-1#mt7981b-melonpi-ax3
 +bootdelay=0
-+bootfile=openwrt-mediatek-filogic-melonpi-ax3-initramfs-kernel.bin
-+bootfile_upg=openwrt-mediatek-filogic-melonpi-ax3-squashfs-sysupgrade.itb
++bootfile=openwrt-mediatek-filogic-melonpi_ax3-initramfs-kernel.bin
++bootfile_upg=openwrt-mediatek-filogic-melonpi_ax3-squashfs-sysupgrade.itb
 +bootmenu_confirm_return=askenv - Press ENTER to return to menu ; bootmenu 60
 +bootmenu_default=0
 +bootmenu_delay=0
