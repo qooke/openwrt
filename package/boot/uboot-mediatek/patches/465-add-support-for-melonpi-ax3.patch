@@ -405,7 +405,7 @@ Signed-off-by: qooke <balainit@163.com>
 +bootmenu_confirm_return=askenv - Press ENTER to return to menu ; bootmenu 60
 +bootmenu_default=0
 +bootmenu_delay=0
-+bootmenu_title=      ( ( ( OpenWrt ) ) )
++bootmenu_title=      [0;34m( ( ( [1;39mOpenWrt[0;34m ) ) )[0m
 +bootmenu_0=Initialize environment.=run _firstboot
 +bootmenu_0d=Run default boot command.=run boot_default
 +bootmenu_1=Boot system via TFTP.=run boot_tftp ; run bootmenu_confirm_return
@@ -431,5 +431,5 @@ Signed-off-by: qooke <balainit@163.com>
 +_init_env=setenv _init_env ; saveenv
 +_firstboot=setenv _firstboot ; run _switch_to_menu ; run lan_mac_factory ; run wan_mac_factory ; run label_mac_factory ; run env_cleanup ; run ethaddr_factory ; run wifi_mac_factory ; run _init_env ; run boot_first
 +_switch_to_menu=setenv _switch_to_menu ; setenv bootdelay 3 ; setenv bootmenu_delay 3 ; setenv bootmenu_0 $bootmenu_0d ; setenv bootmenu_0d ; run _bootmenu_update_title
-+_bootmenu_update_title=setenv _bootmenu_update_title ; setenv bootmenu_title "$bootmenu_title       $ver"
++_bootmenu_update_title=setenv _bootmenu_update_title ; setenv bootmenu_title "$bootmenu_title       [33m$ver[0m"
 +validate_bootmedia=test $bootmedia != "nor" -a $bootmedia != "sd" && setenv bootmedia "nor"
