@@ -1093,7 +1093,6 @@ define Device/melonpi_ax3
   DEVICE_MODEL := AX3
   DEVICE_DTS := mt7981b-melonpi-ax3
   DEVICE_DTS_OVERLAY := \
-  mt7981b-melonpi-ax3 \
   mt7981b-melonpi-ax3-sd \
   mt7981b-melonpi-ax3-sd-boot
   DEVICE_DTS_DIR := ../dts

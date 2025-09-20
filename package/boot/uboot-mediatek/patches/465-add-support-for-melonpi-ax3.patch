@@ -149,10 +149,10 @@ Signed-off-by: qooke <balainit@163.com>
 +		};
 +	};
 +
-+	uart2_pins: uart2-pins {
++	uart1_pins: uart1-pins {
 +		mux {
 +			function = "uart";
-+			groups = "uart2_0_tx_rx";
++			groups = "uart1_0_tx_rx";
 +		};
 +	};
 +};
@@ -203,7 +203,7 @@ Signed-off-by: qooke <balainit@163.com>
 +
 +			partition@180000 {
 +				label = "firmware";
-+				reg = <0x180000 0x1E80000>;
++				reg = <0x180000 0x0E80000>;
 +			};
 +		};
 +	};
@@ -227,9 +227,9 @@ Signed-off-by: qooke <balainit@163.com>
 +	   status = "okay";
 +};
 +
-+&uart2 {
++&uart1 {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&uart2_pins>;
++	pinctrl-0 = <&uart1_pins>;
 +	status = "okay";
 +};
 --- /dev/null
@@ -398,7 +398,7 @@ Signed-off-by: qooke <balainit@163.com>
 +bootargs=root=/dev/fit0 rootwait
 +console=earlycon=uart8250,mmio32,0x11002000 console=ttyS0
 +bootcmd=run validate_bootmedia; if test $bootmedia = "nor"; then run boot_nor; else if test $bootmedia = "sd"; then run boot_sd_firmware; fi; fi
-+bootconf=config-1#mt7981b-melonpi-ax3
++bootconf=config-1#mt7981b-melonpi-ax3-sd
 +bootdelay=0
 +bootfile=openwrt-mediatek-filogic-melonpi-ax3-initramfs-kernel.bin
 +bootfile_upg=openwrt-mediatek-filogic-melonpi-ax3-squashfs-sysupgrade.itb
@@ -427,7 +427,7 @@ Signed-off-by: qooke <balainit@163.com>
 +load_tftp_sysupgrade=run validate_bootmedia; tftpboot $loadaddr $bootfile_upg && iminfo $loadaddr && if test $bootmedia = "nor"; then run nor_write_firmware; else if test $bootmedia = "sd"; then run sdmmc_write_firmware; fi; fi
 +reset_factory=env default -a && saveenv && reset
 +nor_pad_size=setexpr image_eb $filesize / 0x1000 ; setexpr tmp1 image_size % 0x1000 ; test 0x$tmp1 -gt 0 && setexpr image_eb $image_eb + 1 ; setexpr image_eb $image_eb * 0x1000
-+nor_write_firmware=run nor_pad_size ; test 0x$image_eb -le 0x1e80000 && mtd erase firmware 0x0 0x$image_eb && mtd write firmware $loadaddr 0x0 $filesize
++nor_write_firmware=run nor_pad_size ; test 0x$image_eb -le 0xe80000 && mtd erase firmware 0x0 0x$image_eb && mtd write firmware $loadaddr 0x0 $filesize
 +_init_env=setenv _init_env ; saveenv
 +_firstboot=setenv _firstboot ; run _switch_to_menu ; run lan_mac_factory ; run wan_mac_factory ; run label_mac_factory ; run env_cleanup ; run ethaddr_factory ; run wifi_mac_factory ; run _init_env ; run boot_first
 +_switch_to_menu=setenv _switch_to_menu ; setenv bootdelay 3 ; setenv bootmenu_delay 3 ; setenv bootmenu_0 $bootmenu_0d ; setenv bootmenu_0d ; run _bootmenu_update_title

@@ -252,7 +252,7 @@
 
 			firmware: partition@180000 {
 				label = "firmware";
-				reg = <0x180000 0x1E80000>;
+				reg = <0x180000 0x0E80000>;
 			};
 		};
 	};
@@ -323,13 +323,6 @@
 		};
 	};
 
-	uart2_pins: uart2-pins {
-		mux {
-			function = "uart";
-			groups = "uart2_0_tx_rx";
-		};
-	};
-
 	spi2_flash_pins: spi2-pins {
 		mux {
 			function = "spi";
@@ -355,12 +348,6 @@
 &uart1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&uart1_pins>;
-	status = "disabled";
-};
-
-&uart2 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&uart2_pins>;
 	status = "okay";
 };
 
