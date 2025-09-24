@@ -17,7 +17,7 @@ Signed-off-by: qooke <balainit@163.com>
 
 --- /dev/null
 +++ b/arch/arm/dts/mt7981-melonpi_ax3.dts
-@@ -0,0 +1,214 @@
+@@ -0,0 +1,206 @@
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +
 +/dts-v1/;
@@ -148,14 +148,6 @@ Signed-off-by: qooke <balainit@163.com>
 +			bias-pull-down = <MTK_PUPD_SET_R1R0_00>;
 +		};
 +	};
-+
-+	uart1_pins: uart1-pins {
-+		mux {
-+			function = "uart";
-+			groups = "uart1_0_tx_rx";
-+		};
-+	};
-+};
 +
 +&spi2 {
 +	pinctrl-names = "default";
