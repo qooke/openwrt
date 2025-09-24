@@ -266,13 +266,6 @@
 		};
 	};
 
-	uart1_pins: uart1-pins {
-		mux {
-			function = "uart";
-			groups = "uart1_0";
-		};
-	};
-
 	mmc0_pins_default: mmc0-pins-default {
 		mux {
 			function = "flash";
@@ -342,12 +335,6 @@
 };
 
 &uart0 {
-	status = "okay";
-};
-
-&uart1 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&uart1_pins>;
 	status = "okay";
 };
 
