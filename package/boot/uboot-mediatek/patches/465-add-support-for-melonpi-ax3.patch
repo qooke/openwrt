@@ -201,22 +201,22 @@ Signed-off-by: qooke <balainit@163.com>
 +	};
 +};
 +
-+&uart0 {
++&mmc0 {
++	assigned-clock-parents = <&topckgen CLK_TOP_CB_NET2_D4>,
++				 <&topckgen CLK_TOP_CB_NET2_D2>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&mmc0_pins_default>;
++	bus-width = <4>;
++	max-frequency = <50000000>;
++	cap-sd-highspeed;
++	r_smpl = <0>;
++	vmmc-supply = <&reg_3p3v>;
++	vqmmc-supply = <&reg_3p3v>;
 +	status = "okay";
 +};
 +
-+&mmc0 {
-+	   assigned-clock-parents = <&topckgen CLK_TOP_CB_NET2_D4>,
-+				<&topckgen CLK_TOP_CB_NET2_D2>;
-+	   pinctrl-names = "default";
-+	   pinctrl-0 = <&mmc0_pins_default>;
-+	   bus-width = <4>;
-+	   max-frequency = <50000000>;
-+	   cap-sd-highspeed;
-+	   r_smpl = <0>;
-+	   vmmc-supply = <&reg_3p3v>;
-+	   vqmmc-supply = <&reg_3p3v>;
-+	   status = "okay";
++&uart0 {
++	status = "okay";
 +};
 --- /dev/null
 +++ b/configs/mt7981_melonpi_ax3_defconfig
