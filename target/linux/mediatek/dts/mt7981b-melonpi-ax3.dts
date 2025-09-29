@@ -269,7 +269,7 @@
 	mmc0_pins_default: mmc0-pins-default {
 		mux {
 			function = "flash";
-			groups = "emmc_45";
+			groups = "emmc_4";
 		};
 		conf-cmd-dat {
 			pins = "SPI0_CLK", "SPI0_MOSI", "SPI0_MISO",
@@ -294,7 +294,7 @@
 	mmc0_pins_uhs: mmc0-pins-uhs {
 		mux {
 			function = "flash";
-			groups = "emmc_45";
+			groups = "emmc_4";
 		};
 		conf-cmd-dat {
 			pins = "SPI0_CLK", "SPI0_MOSI", "SPI0_MISO",
