@@ -1,0 +1,11 @@
+#include "mt7621_melonpi-m21.dtsi"
+
+/ {
+	compatible = "melonpi,m21-32m", "melonpi,m21", "mediatek,mt7621-soc";
+	model = "MelonPi M21 (32M flash)";
+};
+
+&firmware {
+	reg = <0x50000 0x1fb0000>;
+};
+
