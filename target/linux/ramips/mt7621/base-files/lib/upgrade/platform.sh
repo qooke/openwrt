@@ -51,6 +51,7 @@ platform_do_upgrade() {
 			fw_setenv boot_from firmware1 || exit 1
 		fi
 		;;
+	melonpi,m21|\
 	mikrotik,ltap-2hnd|\
 	mikrotik,routerboard-750gr3|\
 	mikrotik,routerboard-760igs|\
