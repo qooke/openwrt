@@ -2169,6 +2169,28 @@ define Device/linksys_re7000
 endef
 TARGET_DEVICES += linksys_re7000
 
+define Device/melonpi-m21-16m
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := MelonPi
+  DEVICE_MODEL := M21
+  DEVICE_VARIANT := 16M
+  DEVICE_PACKAGES := kmod-usb3 kmod-mmc-mtk -uboot-envtools
+endef
+TARGET_DEVICES += melonpi-m21-16m
+
+define Device/melonpi-m21-32m
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 32448k
+  DEVICE_VENDOR := MelonPi
+  DEVICE_MODEL := M21
+  DEVICE_VARIANT := 32M
+  DEVICE_PACKAGES := kmod-usb3 kmod-mmc-mtk -uboot-envtools
+endef
+TARGET_DEVICES += melonpi-m21-32m
+
 define Device/maginon_mc-1200ac
   $(Device/dsa-migration)
   DEVICE_VENDOR := Maginon
