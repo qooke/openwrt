@@ -592,6 +592,18 @@ define U-Boot/mt7981_nokia_ea0326gmp
   DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3
 endef
 
+define U-Boot/mt7981_melonpi_m81-pro
+  NAME:=MelonPi M81 Pro
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=melonpi_m81-pro
+  UBOOT_CONFIG:=mt7981_melonpi_m81-pro
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=spim-nand
+  BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr3-1866
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3-1866
+endef
+
 define U-Boot/mt7981_openwrt_one-snand
   NAME:=OpenWrt One NAND
   BUILD_SUBTARGET:=filogic
@@ -1306,6 +1318,7 @@ UBOOT_TARGETS := \
 	mt7981_netis_nx31 \
 	mt7981_netis_nx32u \
 	mt7981_nokia_ea0326gmp \
+	mt7981_melonpi_m81-pro \
 	mt7981_openwrt_one-snand \
 	mt7981_openwrt_one-nor \
 	mt7981_rfb-spim-nand \
