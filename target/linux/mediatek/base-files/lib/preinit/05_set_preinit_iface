@@ -9,6 +9,7 @@ set_preinit_iface() {
 	glinet,gl-mt2500|\
 	glinet,gl-mt2500-airoha|\
 	glinet,gl-mt3000|\
+	melonpi,m81-pro|\
 	openembed,som7981|\
 	wavlink,wl-wn573hx3)
 		ip link set eth1 up

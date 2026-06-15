@@ -2798,6 +2798,33 @@ define Device/openfi_6c
 endef
 TARGET_DEVICES += openfi_6c
 
+define Device/melonpi_m81-pro
+  DEVICE_VENDOR := MelonPi
+  DEVICE_MODEL := M81 Pro
+  DEVICE_VARIANT := v1 (OpenWrt U-Boot layout)
+  DEVICE_DTS := mt7981b-melonpi-m81-pro
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware \
+  kmod-phy-airoha-en8811h airoha-en8811h-firmware kmod-hwmon-pwmfan kmod-usb3 \
+  kmod-usb-storage kmod-usb-serial-option kmod-usb-net-qmi-wwan uqmi kmod-usb-net-cdc-ether
+  UBINIZE_OPTS := -E 5
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_IN_UBI := 1
+  UBOOTENV_IN_UBI := 1
+  IMAGES := sysupgrade.itb
+  KERNEL_INITRAMFS_SUFFIX := -recovery.itb
+  KERNEL := kernel-bin | gzip
+  KERNEL_INITRAMFS := kernel-bin | lzma | \
+	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd | pad-to 64k
+  IMAGE/sysupgrade.itb := append-kernel | \
+	fit gzip $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb external-static-with-rootfs | append-metadata
+  ARTIFACTS := preloader.bin bl31-uboot.fip
+  ARTIFACT/preloader.bin := mt7981-bl2 spim-nand-ddr3-1866
+  ARTIFACT/bl31-uboot.fip := mt7981-bl31-uboot melonpi_m81-pro
+endef
+TARGET_DEVICES += melonpi_m81-pro
+
 define Device/openwrt_one
   DEVICE_VENDOR := OpenWrt
   DEVICE_MODEL := One
