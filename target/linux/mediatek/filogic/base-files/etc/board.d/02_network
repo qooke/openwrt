@@ -161,7 +161,7 @@ mediatek_setup_interfaces()
 	openembed,som7981|\
 	melonpi,m81-pro|\
 	openwrt,one)
-		ucidef_set_interfaces_lan_wan eth1 eth0
+		ucidef_set_interfaces_lan_wan eth1
 		;;
 	dlink,aquila-pro-ai-e30-a1|\
 	netis,eap930-v1)

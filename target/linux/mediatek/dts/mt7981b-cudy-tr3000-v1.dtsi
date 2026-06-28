@@ -9,8 +9,8 @@
 		label-mac-device = &gmac1;
 		led-boot = &led_sys_red;
 		led-failsafe = &led_sys_red;
-		led-running = &led_sys_white;
-		led-upgrade = &led_sys_white;
+		led-running = &led_sys_red;
+		led-upgrade = &led_sys_red;
 		serial0 = &uart0;
 	};
 
@@ -42,24 +42,32 @@
 		led_sys_red: led-0 {
 			function = LED_FUNCTION_POWER;
 			color = <LED_COLOR_ID_RED>;
-			gpios = <&pio 11 GPIO_ACTIVE_LOW>;
+			gpios = <&pio 9 GPIO_ACTIVE_LOW>;
+		};
+/*
+		led_sys_red: led-1 {
+			function = LED_FUNCTION_POWER;
+			color = <LED_COLOR_ID_RED>;
+			gpios = <&pio 12 GPIO_ACTIVE_LOW>;
 		};
 
-		led_sys_white: led-1 {
+		led_sys_white: led-2 {
 			function = LED_FUNCTION_STATUS;
 			color = <LED_COLOR_ID_WHITE>;
-			gpios = <&pio 10 GPIO_ACTIVE_LOW>;
+			gpios = <&pio 13 GPIO_ACTIVE_LOW>;
 		};
+*/
 	};
-
+/*
 	usb_vbus: regulator-usb {
 		compatible = "regulator-fixed";
 		regulator-name = "usb-vbus";
 		regulator-min-microvolt = <5000000>;
 		regulator-max-microvolt = <5000000>;
-		gpios = <&pio 9 GPIO_ACTIVE_LOW>;
+		gpios = <&pio 14 GPIO_ACTIVE_HIGH>;
 		regulator-boot-on;
 	};
+*/
 };
 
 &uart0 {
@@ -67,23 +75,23 @@
 };
 
 &watchdog {
-	status = "okay";
+	status = "disabled";
 };
 
 &eth {
 	pinctrl-names = "default";
 	pinctrl-0 = <&mdio_pins>;
 	status = "okay";
-
+/*
 	gmac0: mac@0 {
 		compatible = "mediatek,eth-mac";
 		reg = <0>;
 		phy-mode = "2500base-x";
-		phy-handle = <&phy1>;
+		phy-handle = <&phy15>;
 		nvmem-cell-names = "mac-address";
 		nvmem-cells = <&macaddr_bdinfo_de00 1>;
 	};
-
+*/
 	gmac1: mac@1 {
 		compatible = "mediatek,eth-mac";
 		reg = <1>;
@@ -94,18 +102,19 @@
 	};
 };
 
+/*
 &mdio_bus {
-	phy1: phy@1 {
+	phy15: ethernet-phy@15 {
 		compatible = "ethernet-phy-ieee802.3-c45";
-		reg = <1>;
-		reset-assert-us = <100000>;
-		reset-deassert-us = <100000>;
-		reset-gpios = <&pio 39 GPIO_ACTIVE_LOW>;
-		interrupts = <38 IRQ_TYPE_LEVEL_LOW>;
+		reg = <15>;
 		interrupt-parent = <&pio>;
-		realtek,aldps-enable;
+		interrupts = <38 IRQ_TYPE_EDGE_FALLING>;
+		reset-gpios = <&pio 39 GPIO_ACTIVE_LOW>;
+		reset-assert-us = <10000>;
+		reset-deassert-us = <20000>;
 	};
 };
+*/
 
 &spi0 {
 	pinctrl-names = "default";
@@ -192,17 +201,35 @@
 			groups = "spi0", "spi0_wp_hold";
 		};
 	};
+
+	pwm1_pins: pwm1-pins {
+		mux {
+			function = "pwm";
+			groups = "pwm1_1";
+		};
+	};
+};
+
+&fan {
+	pwms = <&pwm 1 40000 0>;
+	status = "disabled";
+};
+
+&pwm {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm1_pins>;
+	status = "disabled";
 };
 
 &usb_phy {
-	status = "okay";
+	status = "disabled";
 };
-
+/*
 &xhci {
-	status = "okay";
+	status = "disabled";
 	vbus-supply = <&usb_vbus>;
 };
-
+*/
 &wifi {
 	status = "okay";
 
